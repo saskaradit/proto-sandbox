@@ -1,0 +1,42 @@
+// Proto3 syntax
+syntax = "proto3";
+
+message Person {
+  int32 age = 1;
+  string first_name = 2;
+  string last_name = 3;
+  // small_pictures represents a small .jpg file
+  bytes small_picture = 4;
+  bool is_profile_verified = 5;
+  // height in cms
+  float height = 6;
+  // a list of phone numbers that is optional to provide at signup
+  repeated string phone_numbers = 7;
+
+  // currently i am using 3 eye colors
+  enum EyeColor {
+    UNKNOWN_EYE_COLOR = 0;
+    EYE_GREEN = 1;
+    EYE_BLUE = 2;
+    EYE_BROWN =3;
+  }
+  EyeColor eye_color = 8;
+
+  // Birthday
+  Date birthday = 9;
+
+  message Address {
+    string address_line = 1;
+    string zip_code = 2;
+    string city = 3;
+    string country = 5;
+  }
+
+  repeated Address addresses = 10;
+}
+
+message Date {
+  int32 year = 1;
+  int32 month = 2;
+  int32 day = 3;
+}
